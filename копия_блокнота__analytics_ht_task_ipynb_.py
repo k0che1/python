@@ -262,7 +262,7 @@ for i in range (n):
     country=df.iloc[i][0]
     a=list(df[df['Country Name'] == country].values[0][1:])
     prom=koef(a,bul_population)
-    if prom>0.8:
+    if prom>0.89:
         res.append([df.loc[i][0], prom])
 
 with open('D:\\study\\python\\азы аналитики\\output.txt','w') as ouf:
