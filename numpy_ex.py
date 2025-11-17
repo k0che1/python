@@ -237,3 +237,14 @@ for i in range(a):
 '''
 sh=Z.shape
 print(np.unravel_index(i,sh))
+
+
+'''
+Поменяйте знак всех чисел из интервала (3; 9), хранящихся в векторе Z.
+'''
+#1
+for i in range(len(Z)):
+  if Z[i]>3 and Z[i]<9:
+    Z[i]*=-1
+#2
+Z[(Z>3)&(Z<9)]*=-1
