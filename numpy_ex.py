@@ -285,3 +285,17 @@ for i in range(len(A)):
 Z=np.array((sorted(Z)))
 #2
 Z=np.array((sorted(list(set(A)&set(B)))))
+
+
+'''
+Составьте список (numpy array) дат с шагом в 1 день от начала до окончания отсчёта (последний день не включается).
+1-я входная строка - год (опционально месяц и день) в формате ISO начала отсчёта.2-я входная строка - год (опционально месяц и день) 
+в формате ISO окончания отсчёта.Результат должен представлять из себя список дат в формате ISO.
+'''
+#1
+a=np.datetime64(input(), 'D')
+b=np.datetime64(input(), 'D')
+c=np.arange(a,b,dtype='datetime64[D]')
+print(c) 
+#2
+Z = np.arange(input(), input(), dtype='datetime64[D]')
