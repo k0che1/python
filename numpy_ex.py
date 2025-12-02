@@ -299,3 +299,70 @@ c=np.arange(a,b,dtype='datetime64[D]')
 print(c) 
 #2
 Z = np.arange(input(), input(), dtype='datetime64[D]')
+
+
+'''
+На вход подаётся 2 строки:
+1-я строка содержит 2 натуральных числа: n, m;
+2-я строка содержит число k/.
+Создайте матрицу размера n*m такую, что каждая её строка содержит числа от k до k+m-1 (с шагом 1).
+'''
+#1
+n,m=[int(i) for i in input().split()]
+k=int(input())
+A=[]
+Z=[]
+for j in range(k,k+m):
+  A.append(float(j))
+for i in range(n):
+  Z.append(A)
+Z=np.array(Z)
+#2
+n,m=[int(i) for i in input().split()]
+k=int(input())
+A=np.arange(k,k+m)
+Z=np.array([A]*n, dtype=float).reshape(n,m)
+
+
+'''
+На вход подаётся 2 строки:
+1-я строка содержит 2 натуральных числа: n, m;
+2-я строка содержит число k.
+Создайте матрицу размера n*m такую, что каждый её столбец содержит числа от k до k+n-1 (с шагом 1).
+'''
+n,m=[int(i) for i in input().split()]
+k=int(input())
+A=[[i]*m for i in range(k,k+n)]
+Z=np.array(A, dtype=float).reshape(n,m)
+
+
+'''
+На вход подаются 3 числа (каждое с новой строки):start,stop,n.
+Составьте список (numpy.array) из n точек на отрезке (start, stop), попарно равноудалённых друг от друга и от концов отрезка (т.е. разделите отрезок на n+1 часть). 
+Округлите значения точек до 3 знака после запятой.
+'''
+#1
+nac=int(input())
+kon=int(input())
+n=int(input())
+Z=np.linspace(nac,kon,n+2)
+Z=np.around(Z[1:-1],3)
+#2
+Z = np.linspace(int(input()), int(input()), int(input()) + 2)[1:-1].round(3)
+
+
+'''
+На вход подаются 3 числа (каждое с новой строки):start,stop,n.
+Составьте список из n точек на отрезке [start, stop] в геометрической прогрессии, включая start и stop.
+Округлите значения точек до 3 знака после запятой.
+'''
+nac,kon,n=int(input()),int(input()),int(input())
+Z=np.around(np.geomspace(nac,kon,n),3)
+
+
+'''
+Считайте 2 числа:seed,n. С помощью Numpy сгенерируйте n случайных чисел из интервала (0, 1) с фиксированным seed, отсортируйте их по возрастанию и сохраните в переменную Z.
+'''
+s,n=int(input()),int(input())
+np.random.seed(s)
+Z=np.sort(np.random.random(size=n))
