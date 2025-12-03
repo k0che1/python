@@ -109,3 +109,12 @@ print(df[df['age'].between(*age_between)])
 df.loc[index,'age']+=1
 #2
 df['age'][index] += 1
+
+
+'''
+Переменная df содержит DataFrame. Выведите на печать сумму всех возрастов в df.
+'''
+#1
+print(df['age'].sum())
+#2
+print(np.sum(df.age))
