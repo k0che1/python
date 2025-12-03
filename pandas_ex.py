@@ -118,3 +118,17 @@ df['age'][index] += 1
 print(df['age'].sum())
 #2
 print(np.sum(df.age))
+
+
+'''
+Переменная df содержит DataFrame.Выведите на печать для каждого столбца, содержащего числа его имя и сумму через двоеточие.
+'''
+#1
+for x in df.describe():
+    print(x + ":" + str(df[x].sum()))
+
+#2
+c=df.sum(numeric_only=True).index.values.tolist()
+a=df.sum(numeric_only=True)
+for i in range(len(c)):
+  print(f'{c[i]}:{a[i]}')
