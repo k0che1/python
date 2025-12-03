@@ -91,3 +91,12 @@ print(df[df.age.isna()])
 Выведите только те строки датафрейма, которые удовлетворяют условиям обоих фильтров.
 '''
 print(df[(df[filter_names[0]]==filter_values[0]) & (df[filter_names[1]]<filter_values[1])])
+
+
+'''
+Переменная df - DataFrame.Переменная age_between содержит 2 числа. Выведите только те строки датафрейма, возраст в которых находится в интервале между числами age_between (включая границы).
+'''
+#1
+print(df[(df['age']>=age_between[0]) & (df['age']<=age_between[1])])
+#2
+print(df[df['age'].between(*age_between)])
