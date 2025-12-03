@@ -100,3 +100,12 @@ print(df[(df[filter_names[0]]==filter_values[0]) & (df[filter_names[1]]<filter_v
 print(df[(df['age']>=age_between[0]) & (df['age']<=age_between[1])])
 #2
 print(df[df['age'].between(*age_between)])
+
+
+'''
+Переменная df содержит DataFrame. Переменная index содержит строку ИЛИ число (индекс).Увеличьте значение возраста в строке индексом равным index на 1.
+'''
+#1
+df.loc[index,'age']+=1
+#2
+df['age'][index] += 1
