@@ -132,3 +132,10 @@ c=df.sum(numeric_only=True).index.values.tolist()
 a=df.sum(numeric_only=True)
 for i in range(len(c)):
   print(f'{c[i]}:{a[i]}')
+
+
+'''
+df - DataFrame.Переменная group_by содержит имя колонки по которой производится группировка. Найдите средние значение возраста по всем записям, сгруппированным по значению 
+в колонке group_by и выведите на печать. Например, если group_by='animal', то для первого Dataframe надо получить таблицу со средними для каждого вида животных: кошек, собак, змей.
+'''
+print(df.groupby([group_by])['age'].mean())
