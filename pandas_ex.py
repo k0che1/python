@@ -166,3 +166,21 @@ df.sort_values(*[sort_by],ascending=[False,True], inplace=True)
 print(df)
 #2
 print(df.sort_values(sort_by, ascending=(False, True)))
+
+
+'''
+Переменная df содержит DataFrame. Переменная column содержит имя колонки, содержащей строковые значения "yes", "no", либо числовые 1 или 0.
+Замените в column: "yes" и 1 на True, "no" и 0 на False
+'''
+#1
+z = {'yes': True, 'no': False, 0: False, 1: True
+df[column] =df[column].map(z)
+#2
+df[column] = df[column].isin([1, 'yes'])
+
+
+'''
+Переменная df содержит DataFrame. Переменная column содержит имя колонки, значения в которой надо модифицировать. Переменные old_value и new_value содержат старое 
+и новое значения, соответственно.Замените все старые значения на новые в соответсвующей колонке.
+'''
+df[column]=df[column].replace(old_value,new_value)
