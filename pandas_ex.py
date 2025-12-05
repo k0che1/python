@@ -184,3 +184,18 @@ df[column] = df[column].isin([1, 'yes'])
 и новое значения, соответственно.Замените все старые значения на новые в соответсвующей колонке.
 '''
 df[column]=df[column].replace(old_value,new_value)
+
+
+'''
+В файле torg.csv представлена выгрузка со склада интернет-магазина. Товаров какого цвета больше всего на складе?
+'''
+df = pd.read_csv('torg.csv', sep=';')
+df_group = df[['IP_PROP30', 'CP_QUANTITY']].groupby('IP_PROP30')
+print(df_group.sum().idxmax())
+
+
+'''
+В файле torg.csv представлена выгрузка со склада интернет-магазина. Сгруппируйте размеры представленных товаров по суммарному количеству единиц товара на складе.
+'''
+df_group = df[['IP_PROP32', 'CP_QUANTITY']].groupby('IP_PROP32')
+print(df_group.sum().sort_values(by='CP_QUANTITY'))
