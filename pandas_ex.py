@@ -199,3 +199,10 @@ print(df_group.sum().idxmax())
 '''
 df_group = df[['IP_PROP32', 'CP_QUANTITY']].groupby('IP_PROP32')
 print(df_group.sum().sort_values(by='CP_QUANTITY'))
+
+
+'''
+В этом задании представлена выгрузка складских остатков. Найдите суммарную стоимость всех розовых (pink) вещей большого размера (XL).
+'''
+df['cost'] = df.CP_QUANTITY * df.CR_PRICE_1_USD
+df=df[(df['IP_PROP30']=='pink')&(df['IP_PROP32']=='XL')].cost.sum()
