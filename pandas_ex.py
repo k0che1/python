@@ -247,3 +247,19 @@ df['day_of_week'] = df['Date'].dt.dayofweek
 c=df.groupby('day_of_week').mean().mean(axis=1)
 #выводим самую посещаемую
 print(c.idxmax())
+
+
+'''
+В файле football_players.csv представлен фрагмент выгрузки датасета о футболистах.Посчитайте среднюю и медианную зарплату "Wage" футболистов из разных клубов "Club".
+В скольких клубах средняя и медианная зарплаты совпадают?
+'''
+#1
+df=pd.read_csv('football_players.csv')
+a=df.groupby('Club')['Wage'].describe(include='all')['mean']
+b=df.groupby('Club')['Wage'].describe(include='all')['50%']
+print(list(a-b).count(0))
+#2
+df=pd.read_csv('football_players.csv')
+a=df.groupby('Club')['Wage'].describe()[['mean','50%']]
+c=a[a['mean']==a['50%']]
+print(len(c))
