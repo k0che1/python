@@ -206,3 +206,10 @@ print(df_group.sum().sort_values(by='CP_QUANTITY'))
 '''
 df['cost'] = df.CP_QUANTITY * df.CR_PRICE_1_USD
 df=df[(df['IP_PROP30']=='pink')&(df['IP_PROP32']=='XL')].cost.sum()
+
+
+
+'''
+В файле StudentsPerformance.csv - выгрузкf об абитуриентах.Каково максимальное медианное значение оценки по чтению у групп, разделенных по признаку "пол абитуриента" и "национальность" ?
+'''
+df=df.groupby(['gender','race/ethnicity'])['reading score'].median().max()
