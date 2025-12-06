@@ -263,3 +263,19 @@ df=pd.read_csv('football_players.csv')
 a=df.groupby('Club')['Wage'].describe()[['mean','50%']]
 c=a[a['mean']==a['50%']]
 print(len(c))
+
+
+'''
+Посчитайте количество организаций (CompanyID), у которых суммарный объем файлов (FileSize) хотя бы одного проекта (ProjectID) превышает средний объем файлов по всем проектам.
+'''
+df = pd.read_csv('dataset_file_storage.csv',sep=';')
+#Находим суммарный объем файлов для каждого проекта
+a=df.groupby('ProjectID')['FileSize'].sum()
+# Находим среднее суммарных объемов из предыдущей таблицы
+sumMean=a.mean()
+#Делаем группировку по компаниb и проекту для нахождения суммарного размера файла для каждого проекта компани
+b=df.groupby(['CompanyID','ProjectID'])['FileSize'].sum()
+#Применяем фильтр предыдущей таблице
+c=b[b>sumMean]
+print(c)
+
