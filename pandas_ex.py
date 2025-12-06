@@ -278,7 +278,5 @@ b=df.groupby(['CompanyID','ProjectID'])['FileSize'].sum()
 #Применяем фильтр предыдущей таблице
 c=b[b>sumMean]
 Z=c.index.values
-X=[]
-for i in range(len(Z)):
-  X.append(Z[i][0])
+X=[Z[i][0] for i in range(len(Z))]
 print(len(set(X)))
