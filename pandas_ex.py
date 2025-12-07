@@ -280,3 +280,21 @@ c=b[b>sumMean]
 Z=c.index.values
 X=[Z[i][0] for i in range(len(Z))]
 print(len(set(X)))
+
+
+'''
+На какую сумму купили и оплатили носков любых видов?
+'''
+prod = pd.read_csv('Products.csv',sep=';')
+ord=pd.read_csv('orders.csv',sep=';')
+#объединяем таблицы                
+df=pd.merge(ord, prod, how ='left', left_on=('ID товара'), right_on=('Product_ID'))
+#сортируем по статусу и "Носкам"
+df=df[(df['Оплачен'] == 'Да') & (df['Name'].str.contains('Носки'))]
+#считаем стоимость каждого заказа
+df['cost']=df['Количество']*df['Price']
+#выводим сумму
+#1
+print(df['cost'].sum())
+#2
+print(sum(df["Количество"] * df["Price"]))
