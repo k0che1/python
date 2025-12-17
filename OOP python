@@ -1,0 +1,14 @@
+'''
+Создайте пустой класс Animal. Создайте экземпляр объекта Animal и сохраните его в переменную Somebody.
+'''
+class Animal():
+    pass
+Somebody=Animal()
+
+
+'''
+Добавьте в ваш класс Animal метод echo, который принимает строку и 3 раза выводит её на печать, каждый раз с новой строки.
+'''
+class Animal():
+    def echo(self,sa):
+        print(sa.upper(),sa, sa.lower(),sep='\n')
