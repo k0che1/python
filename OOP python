@@ -12,3 +12,18 @@ Somebody=Animal()
 class Animal():
     def echo(self,sa):
         print(sa.upper(),sa, sa.lower(),sep='\n')
+
+
+'''
+Доработайте класс Animal, добавив в него метод инициализатор. Метод должен принимать 1 атрибут - имя нашего животного и сохранять его в атрибут name экземпляра.
+'''
+class Animal():
+    def __init__(self,animal):
+        self.name=animal
+    def echo(self,sa):
+        print(sa.upper(),sa, sa.lower(),sep='\n')
+        
+my_dog = animal('Шарик')
+my_dog.echo(my_dog.name)   
+
+
