@@ -1,0 +1,42 @@
+'''
+По датасету tips.csv (копия) постройте гистограмму распределения признаков: Количество посетителей ресторана в зависимости от дня недели с разделением по времени (Lunch - Завтрак, Dinner - Обед).
+'''
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.set()
+import warnings; warnings.simplefilter('ignore')
+
+df=pd.read_csv('D:\\study\\python\\seborn\\tips.csv')
+
+def cnvrt(x):
+    # функция для перевода текстового дня недели в число
+    if x == 'Fri':
+        return 5
+    elif x == 'Sat':
+        return 6
+    elif x == 'Sun':
+        return 7
+    else:
+        return 0
+
+# добавление номера дня недели для сортировки
+df['numd'] = df.day.apply(cnvrt)
+# сортировка по дню недели
+df.sort_values(by='numd', inplace=True)
+
+plt.figure()
+# вывод гистограммы методом sns.countplot
+sns.countplot(x='day', hue='time', data=df)
+plt.show()
+
+
+
+'''
+По датасету tips.csv (копия) постройте гистограмму распределения признаков: Количество клиентов ресторана в зависимости от количества 
+посетителей за столом с разделением по полу (Female - Женщина, Male - Мужчина).
+'''
+plt.figure()
+# вывод гистограммы методом sns.countplot
+sns.countplot(x='size', hue='sex', data=df)
+plt.show()
